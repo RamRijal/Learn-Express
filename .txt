@@ -1,0 +1,16 @@
+Schema manipulation
+Schema validation
+Regex
+
+
+Find
+Sorting
+Selecting
+Pagination:Limit Skip
+
+
+Register/Login Validation
+
+Token
+JWT
+File
