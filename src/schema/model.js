@@ -7,6 +7,7 @@ import traineeSchema from "./trainee-schema.js";
 import webuserSchema from "./webUser.js";
 import productSchema from "./productSchema.js";
 import reviewSchema from "./reviewSchema.js";
+import fileSchema from "./fileSchema.js";
 
 export let Student = model("Student", studentSchema);
 export let Teacher = model("Teacher", teacherSchema);
@@ -17,6 +18,7 @@ export let Trainee = model("Trainee", traineeSchema);
 export let Webuser= model("Webuser",webuserSchema)
 export let Product= model("Product",productSchema)
 export let Review= model("Review",reviewSchema)
+export let File = model("File", fileSchema);
 
 
 // model name should be singular with first letter capital

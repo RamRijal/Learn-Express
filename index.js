@@ -18,6 +18,7 @@ import reviewRouter from "./src/router/reviewRouter.js";
 
 import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
+import fileRouter from "./src/router/fileRouter.js";
 
 // Ensures JSon acceptance
 
@@ -48,6 +49,7 @@ expressApp.use("/trainees", traineeRouter);
 expressApp.use("/products",productRouter);
 expressApp.use("/reviews",reviewRouter);
 
+expressApp.use("/files",fileRouter);
 
  //////////  Hashing example  /////////////
 

@@ -27,6 +27,8 @@ url -> localhost:8000/product/hairdryer
 // frontend requests backend, backend gives response according to that request. This is called making API
 
 /* 
+MIDDLEWARES
+
 middleware are the function which has req, res and next
 to trigger another middleware, we have to call next()
 
@@ -117,3 +119,10 @@ error middleware
 
 //ALT + SHIFT + O  ===> deleted unused/unnecessary imports   
 //                ===> Manages from packages to routers systematically
+
+
+// one req must have only have one res
+//Cannot set headers after they are sent to the client
+
+//MLUTAR
+//its a package that takes files like images

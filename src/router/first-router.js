@@ -4,12 +4,25 @@ let firstRouter = Router();
 
 firstRouter
 .route("/") // localhost:8000/product
-.post((req, res)=>{
+.post((req, res,next)=>{
     // console.log(req.body);
-    console.log(req.query);
+    // console.log(req.query);
     console.log('home post');
     res.json('home post'); // this displays on postman
-})
+    req.name="hari"
+    req.age=13
+    req.address="patan"
+    next()
+
+},
+(req,res)=>{
+    console.log(req.name);
+    console.log(req.age);
+    console.log(req.address);
+    res.json("Welcome!")
+
+}
+)
 
 
 firstRouter
