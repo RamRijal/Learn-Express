@@ -18,6 +18,15 @@ let userSchema = Schema(
         password:{
             type:String,
             required:[true,"password field is required"]
+        },
+        profileImage:{
+            type:String,
+            required:[true,"profileImage is required"]
+        },
+        resume:
+        {
+            type:String,
+            required:[true,"resume is required"]
         }
     },
     {

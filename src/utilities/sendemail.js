@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
-// the main thing in this file is trasporterInfo and mailInfo
+import { email, password } from "../../constant.js";
+// the main thing in this file is transporterInfo and mailInfo
 //neglet other part
 
 //transporterInof gives form information while mailInof gives to info
@@ -16,8 +17,8 @@ let transporterInfo = {
   auth: {
     // note user and pass most be genuine
     //it is the email through which email is send
-    user: "prajadi14@gmail.com",
-    pass: "cfim hfyg qeew gphl",
+    user: email,
+    pass: password,
     // user: "himalkixori@gmail.com",
     // pass: "hkeafwmygkknqarq",
     // to send email form server first you have to =>

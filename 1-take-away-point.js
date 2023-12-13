@@ -124,9 +124,25 @@ error middleware
 // one req must have only have one res
 //Cannot set headers after they are sent to the client
 
+//form-data in postman instead of body==> store text/file instead of json
+
 //MLUTAR
 //its a package that takes files like images
 
 // in form-data, we can get file data through req.files while others from req.body
 
-//Package npm i nodemailer
+//Package npm i nodemailer==>> Send email
+
+//.env
+//status codes:
+/*
+success=> 2XX family
+failure=> 4XX family
+
+get,delete=> 200
+post,patch=> 201 
+
+Not found=> 404
+Conflicts=> 409
+*/
+

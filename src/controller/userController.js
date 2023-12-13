@@ -24,14 +24,14 @@ export let createUser = async (req, res) => {
             //     path:""
             // }]
         })
-        res.json({
+        res.status(201).json({
             success: true,
             message: "user created successfully.",
             result: result
         });
     }
     catch (error) {
-        res.json({
+        res.status(409).json({
             success: false,
             message: error.message
         });
@@ -42,14 +42,14 @@ export let createUser = async (req, res) => {
 export let readUser = async (req, res) => {
     try {
         let result = await User.find({});
-        res.json(
+        res.status(200).json(
             {
                 success: true,
                 message: "user read successfully",
                 result: result
             });
     } catch (error) {
-        res.json(
+        res.status(400).json(
             {
                 success: false,
                 message: error.message
@@ -61,13 +61,13 @@ export let readUserDetail = async (req, res) => {
     let userId = req.params.userId;
     try {
         let result = await User.findById(userId);
-        res.json({
+        res.status(200).json({
             success: true,
             message: "user read successfully",
             result: result
         });
     } catch (error) {
-        res.json({
+        res.status(400).json({
             success: false,
             message: error.message
         });
@@ -79,13 +79,13 @@ export let updateUser = async (req, res) => {
     let update = req.body;
     try {
         let data = await User.findByIdAndUpdate(userId, update);
-        res.json({
+        res.status(201).json({
             success: true,
             message: "user updated successfully",
             result: data
         })
     } catch (error) {
-        res.json({
+        res.status(400).json({
             success: false,
             message: error.message
         })
@@ -98,13 +98,13 @@ export let deleteUser = async (req, res) => {
 
     try {
         let result = await User.findByIdAndDelete(userId);
-        res.json({
+        res.status(200).json({
             success: true,
             message: "user deleted successfully",
             result: result
         });
     } catch (error) {
-        res.json({
+        res.status(400).json({
             success: false,
             message: error.message
         });

@@ -20,16 +20,19 @@ import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
 import fileRouter from "./src/router/fileRouter.js";
 import imageRouter from "./src/router/imageRouter.js";
+import { port } from "./constant.js";
+// import { config } from "dotenv";
 
 // Ensures JSon acceptance
 
 let expressApp = express();
+// config //.env initiated in this file
 expressApp.use(json())
 expressApp.use(express.static("./public"))
 
 
-expressApp.listen(8000, ()=>{
-    console.log('express app is listening at port 8000');
+expressApp.listen(port, ()=>{
+    console.log(`express app is listening at port ${port}`);
 });
 connectToMongoDB();
 
