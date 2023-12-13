@@ -1,5 +1,6 @@
 import { User } from "../schema/model.js";
 import bcrypt from "bcrypt"
+import { sendEmail } from "../utilities/sendemail.js";
 
 export let createUser = async (req, res) => {
 
@@ -12,6 +13,17 @@ export let createUser = async (req, res) => {
         let hashPassword = await bcrypt.hash(Password, 10)
         userData.password = hashPassword
         let result = await User.create(userData);
+
+        await sendEmail({
+            from:"Un <himalkixori@gmail.com>",
+            to:[req.body.email],
+            subject:"Email verification",
+            html:`<h1>SUCCESSFULLY REGISTERED!</h1>`,
+            // attachments:[{
+            //     filename:"example.com",
+            //     path:""
+            // }]
+        })
         res.json({
             success: true,
             message: "user created successfully.",

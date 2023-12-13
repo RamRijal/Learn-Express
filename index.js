@@ -19,6 +19,7 @@ import reviewRouter from "./src/router/reviewRouter.js";
 import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
 import fileRouter from "./src/router/fileRouter.js";
+import imageRouter from "./src/router/imageRouter.js";
 
 // Ensures JSon acceptance
 
@@ -50,6 +51,8 @@ expressApp.use("/products",productRouter);
 expressApp.use("/reviews",reviewRouter);
 
 expressApp.use("/files",fileRouter);
+expressApp.use("/images",imageRouter);
+
 
  //////////  Hashing example  /////////////
 
@@ -125,9 +128,9 @@ let files=[
 // })
 // console.log(display);
 
-let display=files.map((value,i)=>
-{
-    // return local+value.
-    return `http://localhost:8000/${value.name}` //$ use garda backtick always
-})
-console.log(display);
+// let display=files.map((value,i)=>
+// {
+//     // return local+value.
+//     return `http://localhost:8000/${value.name}` //$ use garda backtick always
+// })
+// console.log(display);

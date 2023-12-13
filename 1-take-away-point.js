@@ -126,3 +126,7 @@ error middleware
 
 //MLUTAR
 //its a package that takes files like images
+
+// in form-data, we can get file data through req.files while others from req.body
+
+//Package npm i nodemailer
