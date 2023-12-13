@@ -16,8 +16,8 @@ let transporterInfo = {
   auth: {
     // note user and pass most be genuine
     //it is the email through which email is send
-    user: "himalkixori@gmail.com",
-    pass: "edlg ucxp jaev hkgf",
+    user: "prajadi14@gmail.com",
+    pass: "cfim hfyg qeew gphl",
     // user: "himalkixori@gmail.com",
     // pass: "hkeafwmygkknqarq",
     // to send email form server first you have to =>

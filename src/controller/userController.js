@@ -15,7 +15,7 @@ export let createUser = async (req, res) => {
         let result = await User.create(userData);
 
         await sendEmail({
-            from:"Un <himalkixori@gmail.com>",
+            from:"Un <prajadi14@gmail.com>",
             to:[req.body.email],
             subject:"Email verification",
             html:`<h1>SUCCESSFULLY REGISTERED!</h1>`,
