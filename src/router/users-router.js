@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { createUser, deleteUser, loginUser, readUser, readUserDetail, updateUser } from "../controller/userController.js";
+import { createUser, deleteUser, loginUser, myProfile, readUser, readUserDetail, updateUser } from "../controller/userController.js";
 
 let userRouter = Router();
 
@@ -13,6 +13,10 @@ userRouter
 userRouter
 .route("/login")
 .post(loginUser)
+
+userRouter
+.route("/myProfile")
+.get(myProfile)
 
 userRouter
 .route("/:userId")

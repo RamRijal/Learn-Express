@@ -1,6 +1,9 @@
 import { User } from "../schema/model.js";
 import bcrypt from "bcrypt"
 import { sendEmail } from "../utilities/sendemail.js";
+import jwt from "jsonwebtoken"
+import { secretKey } from "../../constant.js";
+
 
 export let createUser = async (req, res) => {
 
@@ -15,10 +18,10 @@ export let createUser = async (req, res) => {
         let result = await User.create(userData);
 
         await sendEmail({
-            from:"Un <prajadi14@gmail.com>",
-            to:[req.body.email],
-            subject:"Email verification",
-            html:`<h1>SUCCESSFULLY REGISTERED!</h1>`,
+            from: "Un <prajadi14@gmail.com>",
+            to: [req.body.email],
+            subject: "Email verification",
+            html: `<h1>SUCCESSFULLY REGISTERED!</h1>`,
             // attachments:[{
             //     filename:"example.com",
             //     path:""
@@ -120,6 +123,7 @@ export let deleteUser = async (req, res) => {
 //check password types with hashed password in database registered eaarlier
 //if same ==>login successful
 //else give error
+
 export let loginUser = async (req, res) => {
 
     let email = req.body.email
@@ -138,9 +142,20 @@ export let loginUser = async (req, res) => {
         else {
             let isValidPassword = await bcrypt.compare(password, hashPassword)
             if (isValidPassword) {
+                //token generation and given at postman
+                let infoObj = {         
+                    id: user._id
+                }
+                //secretkey imported from 
+                let expiryInfo = {   
+                    expiresIn: "365d"
+                }
+                let token = jwt.sign(infoObj, secretKey, expiryInfo)
+                console.log(token);
                 res.json({
                     success: true,
-                    message: "User login successful"
+                    message: "User login successful",
+                    result:token
                 })
             }
             else {
@@ -154,7 +169,72 @@ export let loginUser = async (req, res) => {
     } catch (error) {
         res.json({
             success: false,
-            message: "Email or Password doesn't match"
+            message: error.message //catch error must be error.message because the error needs to be known 
         })
     }
+    
 }
+export let myProfile = async (req, res) => {
+  let bearertoken= req.headers.authorization;
+  console.log(bearertoken);
+  let token=bearertoken.split(" ")[1]
+  console.log(token);
+  
+try {
+
+let infoObj=jwt.verify(token,secretKey) //checks if the given token is generated using the secretkey or not
+console.log(infoObj);      //The token must not be expired to give the output
+
+let id=infoObj.id;
+let result=await User.findById({id})
+res.json({
+    success:true,
+    message:"Profile read successfully",
+    result:result
+})
+}    
+ catch (error) {   //If valid then infoObj else error
+console.log(error.message); 
+res.json({
+    success:false,
+    message:error.message
+})
+}
+};
+
+// export let updateProfile = async (req, res) => {
+//     let bearertoken= req.headers.authorization;
+//     console.log(bearertoken);
+//     let token=bearertoken.split(" ")[1]
+//     console.log(token);
+    
+//   try {
+  
+//   let infoObj=jwt.verify(token,secretKey) //checks if the given token is generated using the secretkey or not
+//   console.log(infoObj);      //The token must not be expired to give the output
+  
+//   let id=infoObj.id;
+//   let result=await User.findByIdAndUpdate({id})
+  
+//   await User.updateOne({_id : id},{$set:{...req.body}})
+//   .then((result)=>{
+//     if(!result){
+//         res.josn({
+//             success:false,
+//             message:"User_id did not match"
+//         })
+
+//   }})
+//   res.json({
+//     success:true,
+//     message:"Profile updated successfully",
+// })
+// }   
+//    catch (error) {   //If valid then infoObj else error
+//   console.log(error.message); 
+//   res.json({
+//       success:false,
+//       message:error.message
+//   })
+//   }
+//   };
