@@ -21,15 +21,23 @@ import bcrypt from 'bcrypt'
 import fileRouter from "./src/router/fileRouter.js";
 import imageRouter from "./src/router/imageRouter.js";
 import { port } from "./constant.js";
+
+import cors from "cors"
 // import { config } from "dotenv";
 
 // Ensures JSon acceptance
 
 let expressApp = express();
 // config //.env initiated in this file
-expressApp.use(json())
-expressApp.use(express.static("./public"))
 
+
+expressApp.use(json())
+expressApp.use(cors())
+// Always at top initialized
+// After its initiated, the API can be hit using frontend  
+
+expressApp.use(express.static("./public"))
+//Makes public folder a static folder
 
 expressApp.listen(port, ()=>{
     console.log(`express app is listening at port ${port}`);
