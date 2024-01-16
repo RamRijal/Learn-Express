@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { email, password } from "../../constant.js";
+import { email, password } from "./constant.js";
 // the main thing in this file is transporterInfo and mailInfo
 //neglet other part
 

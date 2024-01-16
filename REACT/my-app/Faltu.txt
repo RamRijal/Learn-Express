@@ -1,0 +1,50 @@
+import './App.css';
+import Address from './practiceComponent/Address.jsx';
+import Age from './practiceComponent/Age.jsx';
+import ButtonClick from './practiceComponent/ButtonClick.jsx';
+import College from './practiceComponent/College.jsx';
+import Detail from './practiceComponent/Detail.jsx';
+import Detail1 from './practiceComponent/Detail1.jsx';
+import EffectOnDifferentData from './practiceComponent/EffectOnDifferentData.jsx';
+import LearnMap1 from './practiceComponent/LearnMap1.jsx';
+import LearnMap2 from './practiceComponent/LearnMap2.jsx';
+import LearnTernary from './practiceComponent/LearnTernary.jsx';
+import Name from './practiceComponent/Name.jsx';
+import UseEffectPractice from './practiceComponent/UseEffect/UseEffectPractice.jsx';
+import UseEffect1 from './practiceComponent/UseEffectHook.jsx/useEffect1.jsx';
+import LearnUseState1 from './practiceComponent/UseStateHook.jsx/LearnUseState1.jsx';
+import LearnUseState2 from './practiceComponent/UseStateHook.jsx/LearnUseState2.jsx';
+
+function App() {
+    let name = <div className='success'>I am Batman</div>
+    let age = 69
+    console.log(age);
+    return (
+        <div>{name}
+            {/* <div>{age}</div>
+            <h1 style={{ fontSize: "50px" }}>Click on the link below:</h1>
+            <a href='https://www.youtube.com/' target="_blank" style={{ textDecoration: "none", color: "red", fontSize: "100px" }}>Youtube</a>
+            <br />
+            <img src='./cover.png' alt="cover.png" style={{ width: "200px", height: "auto" }}></img> */}
+
+            {/* <Name></Name>
+            <Age></Age>
+            <Address></Address>
+            <Detail name="hari" address="ktm" age={69} fatherInfo={{name:"",age:""}}></Detail>
+            <Detail1 name="X" age="29" address="PKR"></Detail1> */}
+
+            {/* <College name="Patan Multiple Campus" address="patan"></College> */}
+            {/* <LearnTernary age={7} marks={88}></LearnTernary> */}
+            {/* <EffectOnDifferentData></EffectOnDifferentData> */}
+            {/* <LearnMap1 ></LearnMap1>
+            <LearnMap2></LearnMap2> */}
+
+            {/* <ButtonClick></ButtonClick>
+            <LearnUseState1></LearnUseState1>
+            <LearnUseState2></LearnUseState2> */}
+<UseEffectPractice/>
+        </div>
+    )
+}
+
+export default App;

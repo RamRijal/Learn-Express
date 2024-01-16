@@ -20,7 +20,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from 'bcrypt'
 import fileRouter from "./src/router/fileRouter.js";
 import imageRouter from "./src/router/imageRouter.js";
-import { port } from "./constant.js";
+import { port } from "./src/utilities/constant.js";
 
 import cors from "cors"
 // import { config } from "dotenv";

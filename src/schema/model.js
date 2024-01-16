@@ -4,7 +4,7 @@ import teacherSchema from "./teacher-schema.js";
 import bookSchema from "./book-schema.js";
 import userSchema from "./users-schema.js";
 import traineeSchema from "./trainee-schema.js";
-import webuserSchema from "./webUser.js";
+import webuserSchema from "./webuser.js";
 import productSchema from "./productSchema.js";
 import reviewSchema from "./reviewSchema.js";
 import fileSchema from "./fileSchema.js";

@@ -1,0 +1,20 @@
+.success
+{
+    color: white;
+    background-color: black;
+}
+.error
+{
+    color: rgb(176, 6, 40);
+    background-color: red;
+}
+.info
+{
+color: blue;
+background-color: lightblue;
+}
+.warning
+{
+color: rgb(214, 139, 0);
+background-color: greenyellow;
+}

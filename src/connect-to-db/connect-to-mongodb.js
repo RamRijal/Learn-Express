@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import { databaseLink } from "../../constant.js";
+import { databaseLink } from "../utilities/constant.js";
 
 let connectToMongoDB = async ()=>{
     try{

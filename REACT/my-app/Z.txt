@@ -1,0 +1,12 @@
+read all user
+==Admin=>SuperAdmin
+
+read specific user
+==Admin=>SuperAdmin
+
+update user
+=>SuperAdmin
+
+delete user
+==Admin=>SuperAdmin
+

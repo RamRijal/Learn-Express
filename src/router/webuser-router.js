@@ -1,21 +1,29 @@
 import { Router } from "express";
 
-import { createWebuser, deleteWebuser, readWebuser, readWebuserDetail, updateWebuser } from "../controller/webuserController.js";
+import { createWebuser, deleteSpecificUser, loginUser, myProfile, passwordUpdate, profileUpdate, readAllWebusers, readSpecificWebuser, updateSpecificUser, verifyEmail } from "../controller/webuserController.js";
 
 let webuserRouter = Router();
 
 webuserRouter
 .route("/")
 .post(createWebuser)
+.get(readAllWebusers)
 
-.get(readWebuser)
+webuserRouter.route("/verify-email").patch(verifyEmail)
+webuserRouter
+.route("/login")
+.post(loginUser)
+// // webuserRouter.route("/logout").post(logoutUser)
+// webuserRouter.route("/my-profile").get(isAuthenticated,myProfile);
+// webuserRouter.route("/update-profile").patch(isAuthenticated,profileUpdate);
+// webuserRouter.route("/update-password").patch(isAuthenticated,passwordUpdate);
 
 webuserRouter
 .route("/:webuserId")
-.delete(deleteWebuser)
-.get(readWebuserDetail)
-.patch(updateWebuser)
-
+.delete(deleteSpecificUser)
+.get(readSpecificWebuser)
+.patch(updateSpecificUser)
+.delete(deleteSpecificUser)
 
 export default webuserRouter;
 

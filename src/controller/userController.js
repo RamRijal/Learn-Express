@@ -2,7 +2,7 @@ import { User } from "../schema/model.js";
 import bcrypt from "bcrypt"
 import { sendEmail } from "../utilities/sendemail.js";
 import jwt from "jsonwebtoken"
-import { secretKey } from "../../constant.js";
+import { secretKey } from "../utilities/constant.js";
 
 
 export let createUser = async (req, res) => {
